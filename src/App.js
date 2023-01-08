@@ -17,10 +17,12 @@ const DUMMY_NAMES = [
   }
 ]
 function App() {
-  const [users, setUser] = useState(DUMMY_NAMES);
+  const [users, setUsers] = useState(DUMMY_NAMES);
 
   const submitFormHandler = (data) =>{
-    console.log(data)
+    setUsers((prevUsers) =>{
+      return [data, ...prevUsers];
+    })
   }
 
   return(

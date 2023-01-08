@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import './App.css';
+import UserCardList from './components/UserCardList';
 import UserForm from './components/UserForm';
 
 const DUMMY_NAMES = [
@@ -17,10 +18,15 @@ const DUMMY_NAMES = [
 ]
 function App() {
   const [users, setUser] = useState(DUMMY_NAMES);
-  
+
+  const submitFormHandler = (data) =>{
+    console.log(data)
+  }
+
   return(
   <div>
-    <UserForm/>
+    <UserForm onSubmitForm = {submitFormHandler}/>
+    <UserCardList userList={users}/>
   </div>
   );
 }

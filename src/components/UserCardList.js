@@ -1,12 +1,19 @@
+import UserCard from "./UserCard";
 
 
 const UserCardList = props => {
-
+   
     return (
         <div>
-            <div>{}</div>
+            {props.userList.map(user => {
+                return(<UserCard 
+                        key={user.id}
+                        name={user.name}
+                        age={user.age}
+                        />)
+            })}
         </div>
     );
 }
 
-export default UserCard;
+export default UserCardList;

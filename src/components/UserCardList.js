@@ -1,10 +1,11 @@
+import Card from "./UI/Card";
 import UserCard from "./UserCard";
 
 
 const UserCardList = props => {
    
     return (
-        <div>
+        <Card className = 'userList'>
             {props.userList.map(user => {
                 return(<UserCard 
                         key={user.id}
@@ -12,7 +13,7 @@ const UserCardList = props => {
                         age={user.age}
                         />)
             })}
-        </div>
+        </Card>
     );
 }
 

@@ -8,11 +8,15 @@ const UserForm = props => {
     const submitHandler = (e) => {
         e.preventDefault();
 
+        // check validity and if not valid we put the modal
+        
         const userData = {
             id: Math.random(),
             name: userName,
             age
         }
+
+        verifyForm(userData);
 
         props.onSubmitForm(userData);
 
@@ -24,6 +28,15 @@ const UserForm = props => {
     }
     const changeAgeHandler = (e) => {
         setAge(e.target.value)
+    }
+
+    const verifyForm = data => {
+        if (/^[a-zA-Z ]+$/.test(data.name)){
+            props.onCheckValid(true)
+            return
+        }else{
+            props.onCheckValid(false)
+        }
     }
     return (
         <Card className='userForm' >

@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import UserForm from './components/UserForm';
+
+const DUMMY_NAMES = [
+  {
+    id:'u1',
+    name: 'Carlos',
+    age: 27
+  },
+  {
+    id:'u2',
+    name: 'Claudia',
+    age: 27
+  }
+]
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [users, setUser] = useState(DUMMY_NAMES);
+  
+  return(
+  <div>
+    <UserForm/>
+  </div>
   );
 }
 
